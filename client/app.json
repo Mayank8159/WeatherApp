@@ -1,28 +1,29 @@
 {
   "expo": {
-    "name": "client",
-    "slug": "client",
+    "name": "SkyNest Weather",
+    "slug": "skynest-weather",
     "scheme": "weatherapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/midrain.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/midrain.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1E1B4B"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mayank.weatherapp"
     },
     "android": {
+      "package": "com.mayank.weatherapp",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
+        "backgroundColor": "#5B3FD3",
+        "foregroundImage": "./assets/midrain.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      
       "statusBar": {
         "translucent": true,
         "barStyle": "light-content"
@@ -37,6 +38,19 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "20cc4029-d3c6-4548-a61e-4e9b81f765df"
+      }
+    },
+    "owner": "mayank8159"
   }
 }
