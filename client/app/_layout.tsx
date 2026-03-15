@@ -2,7 +2,7 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Image, useWindowDimensions, StatusBar as RNStatusBar } from 'react-native';
 import Svg, { Path, Defs, LinearGradient, RadialGradient, Stop } from 'react-native-svg';
-import { Plus, MapPin, List } from 'lucide-react-native';
+import { Sun, Moon, MapPin, List } from 'lucide-react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ThemeProvider, DefaultTheme } from '@react-navigation/native';
@@ -22,6 +22,17 @@ const TAB_BAR_HEIGHT = 80;
 function CustomTabBar({ state, navigation }: any) {
     const { width } = useWindowDimensions();
     const insets = useSafeAreaInsets();
+    const [hour, setHour] = React.useState(new Date().getHours());
+
+    React.useEffect(() => {
+        const timer = setInterval(() => {
+            setHour(new Date().getHours());
+        }, 60000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    const isDay = hour >= 6 && hour < 18;
     const H = TAB_BAR_HEIGHT + insets.bottom;
     const cx = width / 2;
     const dip = 28;
@@ -108,7 +119,12 @@ function CustomTabBar({ state, navigation }: any) {
                     <TouchableOpacity activeOpacity={0.75} style={styles.fab}>
                         <BlurView intensity={30} tint="light" style={StyleSheet.absoluteFillObject} />
                         <View style={styles.fabInnerGlass} />
-                        <Plus color="white" size={28} strokeWidth={2.5} />
+                        <View style={[styles.logoGlow, isDay ? styles.sunGlow : styles.moonGlow]} />
+                        {isDay ? (
+                            <Sun color="#FFD76A" size={24} strokeWidth={2.3} />
+                        ) : (
+                            <Moon color="#DDE6FF" size={22} strokeWidth={2.3} />
+                        )}
                     </TouchableOpacity>
                 </View>
 
@@ -223,5 +239,17 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
         backgroundColor: 'rgba(255, 255, 255, 0.12)',
         borderRadius: 30,
+    },
+    logoGlow: {
+        position: 'absolute',
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+    },
+    sunGlow: {
+        backgroundColor: 'rgba(255, 215, 106, 0.22)',
+    },
+    moonGlow: {
+        backgroundColor: 'rgba(178, 201, 255, 0.22)',
     },
 });
