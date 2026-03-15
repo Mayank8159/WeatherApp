@@ -5,10 +5,10 @@
     "scheme": "weatherapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/midrain.png",
+    "icon": "./assets/app-icon-liquid.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/midrain.png",
+      "image": "./assets/splash-brand.png",
       "resizeMode": "contain",
       "backgroundColor": "#1E1B4B"
     },
@@ -21,7 +21,7 @@
       "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#5B3FD3",
-        "foregroundImage": "./assets/midrain.png",
+        "foregroundImage": "./assets/midrain-foreground.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       }
     },
