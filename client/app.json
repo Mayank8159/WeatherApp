@@ -23,15 +23,15 @@
         "backgroundColor": "#5B3FD3",
         "foregroundImage": "./assets/midrain.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      },
-      "statusBar": {
-        "translucent": true,
-        "barStyle": "light-content"
-      },
-      "navigationBar": {
-        "visible": "sticky-immersive",
-        "backgroundColor": "#00000000"
       }
+    },
+    "androidStatusBar": {
+      "translucent": true,
+      "barStyle": "light-content"
+    },
+    "androidNavigationBar": {
+      "visible": "sticky-immersive",
+      "backgroundColor": "#00000000"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -39,12 +39,6 @@
     "plugins": [
       "expo-router"
     ],
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
     "extra": {
       "router": {},
       "eas": {
